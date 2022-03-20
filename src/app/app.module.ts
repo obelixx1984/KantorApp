@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BazaService } from './_services/baza.service';
 import { WalutyComponent } from './components/waluty/waluty.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { WalutyComponent } from './components/waluty/waluty.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [BazaService],
   bootstrap: [AppComponent]
