@@ -1,0 +1,20 @@
+  <div *ngIf="stocks[0]"> Czas aktualizacji: {{stocks[0].effectiveDate}}</div>
+  <br>
+  <table>
+
+    <div name="currency">
+      <th> Nazwa </th>
+      <td *ngFor="let element of ostatecznaLista" > {{element.currency | titlecase }} </td>
+    </div>
+  
+    <div name="code">
+      <th> Symbol </th>
+      <td *ngFor="let element of ostatecznaLista"> {{element.code}}</td>
+    </div>
+
+    <div name="mid">
+      <th> Cena </th>
+      <td *ngFor="let element of ostatecznaLista"> {{element.mid}}</td>
+    </div>
+
+  </table>
