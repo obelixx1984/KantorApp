@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-export interface Rate {
-  currency: string;
-  code: string;
-  mid: number;
-}
-
-export interface CurrencyRate {
+export interface TabelaNBP {
   table: string;
   no: string;
   effectiveDate: string;
-  rates: Rate[];
+  rates: Wskazniki[];
+}
+
+export interface Wskazniki {
+  currency: string;
+  code: string;
+  mid: number;
 }
 
 @Injectable()
@@ -20,9 +20,9 @@ export class BazaService {
 
   constructor(private http: HttpClient) { }
 
-  getExchangeRate(): Observable<CurrencyRate[]>
+  urlNBPTabelaA(): Observable<TabelaNBP[]>
   {
-    return this.http.get<CurrencyRate[]>('https://api.nbp.pl/api/exchangerates/tables/a/?format=json');
+    return this.http.get<TabelaNBP[]>('https://api.nbp.pl/api/exchangerates/tables/a/?format=json');
   }
 
 }

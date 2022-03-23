@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BazaService, CurrencyRate, Rate } from '../_services/baza.service';
+import { BazaService, TabelaNBP, Wskazniki } from '../_services/baza.service';
 
 @Component({
   selector: 'app-home',
@@ -7,24 +7,22 @@ import { BazaService, CurrencyRate, Rate } from '../_services/baza.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  stocks: Array<CurrencyRate> = [];
+  tabelanbp: Array<TabelaNBP> = [];
 
-  pelnaLista: Array<Rate> = [];
-  krotkaLista: Array<Rate> = [];
-  ostatecznaLista: Array<Rate> = [];
-  
-  symbols: Array<string> = [];
+  pelnaLista: Array<Wskazniki> = [];
+  krotkaLista: Array<Wskazniki> = [];
+  ostatecznaLista: Array<Wskazniki> = [];
 
   constructor(private bazaService: BazaService) { }
 
-  ngOnInit(): void { this.get(); }
+  ngOnInit(): void { this.uruchomListeWalut(); }
 
-  get(): void
+  uruchomListeWalut(): void
   {
-    this.bazaService.getExchangeRate().subscribe( item => {
-     this.stocks = item;
-     this.stocks[0].rates.forEach( (rate) => {
-        this.pelnaLista.push(rate);
+    this.bazaService.urlNBPTabelaA().subscribe( przedmiot => {
+     this.tabelanbp = przedmiot;
+     this.tabelanbp[0].rates.forEach( (wskaznik) => {
+        this.pelnaLista.push(wskaznik);
      });
      this.krotkaLista.push(this.pelnaLista[1]);
      this.krotkaLista.push(this.pelnaLista[7]);
