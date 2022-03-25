@@ -1,26 +1,25 @@
-  <div>
-
-  <div *ngIf="tabelanbp[0]">
-    Data aktualizacji cen walut: <strong>{{tabelanbp[0].effectiveDate | date:'dd.MM.yyyy'}} r.</strong>
-    <br>
-    Nr tabeli NBP: <strong>{{tabelanbp[0].no}}</strong>
-  </div>
-
-  <br>
-
-  <table>
-    <thead>
-       <tr>
-          <th style="text-align: left;">Nazwa Waluty</th> 
-          <th style="text-align: center;">Aktualna średnia cena</th>
-       </tr>
-    </thead>
-    <tbody *ngFor="let element of ostatecznaLista">
-       <tr>
-          <td style="text-align: left;">{{element.currency | titlecase }} ({{element.code}})</td> 
-          <td style="text-align: center;">{{element.mid | number:'1.2-2'}} zł</td>
-       </tr>
-    </tbody>
- </table>
-
+<div class="container-md px-5 gy-5 gx-5">
+   <div class="row" *ngIf="tabelanbp[0]">
+      <div class="col-12 d-flex justify-content-center gy-1">
+      <div class="px-1">Data aktualizacji cen walut:</div> 
+      <div class="px-1"><strong>{{tabelanbp[0].effectiveDate | date:'dd.MM.yyyy'}} r.</strong></div>
+      </div>
+   </div>
+   <div class="row" *ngIf="tabelanbp[0]">
+      <div class="col-12 d-flex justify-content-center gy-1">
+      <div class="px-1">Nr tabeli NBP:</div> 
+      <div class="px-1"><strong>{{tabelanbp[0].no}}</strong></div>
+      </div>
+   </div>
+   <div class="row my-2 d-flex justify-content-center">
+      <div class="card px-0 mx-3 my-3" style="width: 15rem;" *ngFor="let element of ostatecznaLista">
+         <div class="card-header bg-secondary text-white">
+            {{element.currency | titlecase }} ({{element.code}})
+         </div>
+         <div class="card-body">
+            <h5 class="card-title">{{element.mid | number:'1.2-2'}} zł</h5>
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+         </div>
+      </div>  
+   </div>
 </div>
