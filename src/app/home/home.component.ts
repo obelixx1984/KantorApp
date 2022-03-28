@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   krotkaLista: Array<Wskazniki> = [];
   ostatecznaLista: Array<Wskazniki> = [];
 
+  pktWiecej = false;
+  btnWiecej = 'Załaduj więcej';
+
   constructor(private bazaService: BazaService) { }
 
   ngOnInit(): void { this.uruchomListeWalut(); }
@@ -31,5 +34,20 @@ export class HomeComponent implements OnInit {
      this.ostatecznaLista = this.krotkaLista;
      console.log(this.krotkaLista[0]);
     });
+  }
+
+  zaladujWiecej(): void {
+    if (this.pktWiecej)
+    {
+      this.ostatecznaLista = this.krotkaLista;
+      this.btnWiecej = 'Załaduj więcej';
+      this.pktWiecej = false;
+    }
+    else
+    {
+      this.ostatecznaLista = this.pelnaLista;
+      this.btnWiecej = 'Pokaż mniej';
+      this.pktWiecej = true;
+    }
   }
 }
