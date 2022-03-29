@@ -1,28 +1,51 @@
-<div class="container-md px-5 gy-5 gx-5">
-   <div class="row" *ngIf="tabelanbp[0]">
-      <div class="col-12 d-flex justify-content-center gy-1">
-      <div class="px-1">Data aktualizacji cen walut:</div> 
-      <div class="px-1"><strong>{{tabelanbp[0].effectiveDate | date:'dd.MM.yyyy'}} r.</strong></div>
-      </div>
+<div id="wrapper">
+   <div id="sidebar-wrapper">
+       <ul class="sidebar-nav">
+           <li><a href="#">Link</a></li>
+           <li><a href="#">Link</a></li>
+           <li><a href="#">Link</a></li>
+           <li><a href="#">Link</a></li>
+       </ul>
+       <!-- Sidebar content -->
    </div>
-   <div class="row" *ngIf="tabelanbp[0]">
-      <div class="col-12 d-flex justify-content-center gy-1">
-      <div class="px-1">Nr tabeli NBP:</div> 
-      <div class="px-1"><strong>{{tabelanbp[0].no}}</strong></div>
-      </div>
+   <div id="page-content-wrapper">
+      <nav id="navbar-fix">
+         <!-- Navbar content -->
+       </nav>
+       <div class="page-content">
+           <div class="container">
+               <div class="row my-3">
+                   <div class="col-md-12">
+                     <div class="row" *ngIf="tabelanbp[0]">
+                        <div class="col-12 d-flex justify-content-center gy-1">
+                        <div class="px-1">Data aktualizacji cen walut:</div> 
+                        <div class="px-1"><strong>{{tabelanbp[0].effectiveDate | date:'dd.MM.yyyy'}} r.</strong></div>
+                        </div>
+                     </div>
+                     <div class="row" *ngIf="tabelanbp[0]">
+                        <div class="col-12 d-flex justify-content-center gy-1">
+                        <div class="px-1">Nr tabeli NBP:</div> 
+                        <div class="px-1"><strong>{{tabelanbp[0].no}}</strong></div>
+                        </div>
+                     </div>
+                     <div class="row my-2 d-flex justify-content-center">
+                        <div class="card l-bg-green-dark px-0 mx-3 my-3" style="width: 15rem;" *ngFor="let element of ostatecznaLista">
+                           <div class="m-2">
+                              <h5 class="card-title">{{element.currency | titlecase }} ({{element.code}})</h5>
+                          </div>
+                           <div class="card-body">
+                              <h5 class="card-title">{{element.mid | number:'1.2-2'}} zł</h5>
+                              <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                              <div class="card-icon"><i class="fa fa-hashtag" aria-hidden="true"></i></div>
+                           </div>
+                        </div> 
+                     </div>
+                     <div class="text-center my-2">
+                        <button type="button" class="btn btn-dark-blue btn-rounded" (click)="zaladujWiecej()">{{btnWiecej}} <i class="fa fa-check" aria-hidden="true"></i></button>
+                     </div>
+                   </div>
+               </div>
+           </div>
+       </div>
    </div>
-   <div class="row my-2 d-flex justify-content-center">
-      <div class="card px-0 mx-3 my-3" style="width: 15rem;" *ngFor="let element of ostatecznaLista">
-         <div class="card-header bg-secondary text-white">
-            {{element.currency | titlecase }} ({{element.code}})
-         </div>
-         <div class="card-body">
-            <h5 class="card-title">{{element.mid | number:'1.2-2'}} zł</h5>
-            <i class="fa fa-bar-chart" aria-hidden="true"></i>
-         </div>
-      </div> 
-   </div>
-</div>
-<div class="text-center my-2">
-   <button type="button" class="btn btn-dark-blue btn-rounded" (click)="zaladujWiecej()">{{btnWiecej}} <i class="fa fa-check" aria-hidden="true"></i></button>
 </div>

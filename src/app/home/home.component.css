@@ -1,7 +1,101 @@
+#wrapper {
+  padding-left: 300px;
+  padding-top: 60px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -300px;
+  margin-top: -60px;
+  left: 300px;
+  width: 300px;
+  background: #CCC;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar-fix {
+    margin-top: -60px;
+    top: 60px;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    background: #000;
+    overflow-x: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+}
+
+@media (max-width:767px) {
+
+    #wrapper {
+      padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+      left: 0;
+    }
+
+    #wrapper.active {
+      position: relative;
+      left: 300px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+      left: 300px;
+      width: 300px;
+      transition: all 0.4s ease 0s;
+    }
+
+}
+
 .btn-dark-blue {
     background: #7474BF;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fff;
     border: 3px solid #eee;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+
+.l-bg-green-dark {
+    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+    color: #fff;
+}
+
+.card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+    font-size: 110px;
 }
