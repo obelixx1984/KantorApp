@@ -19,29 +19,32 @@
                      <div class="row" *ngIf="tabelanbp[0]">
                         <div class="col-12 d-flex justify-content-center gy-1">
                         <div class="px-1">Data aktualizacji cen walut:</div> 
-                        <div class="px-1"><strong>{{tabelanbp[0].effectiveDate | date:'dd.MM.yyyy'}} r.</strong></div>
+                        <div class="px-1"><h5><strong>{{tabelanbp[0].effectiveDate | date:'dd.MM.yyyy'}} r.</strong></h5></div>
                         </div>
                      </div>
                      <div class="row" *ngIf="tabelanbp[0]">
                         <div class="col-12 d-flex justify-content-center gy-1">
                         <div class="px-1">Nr tabeli NBP:</div> 
-                        <div class="px-1"><strong>{{tabelanbp[0].no}}</strong></div>
+                        <div class="px-1"><h5><strong>{{tabelanbp[0].no}}</strong></h5></div>
                         </div>
                      </div>
                      <div class="row my-2 d-flex justify-content-center">
                         <div class="card l-bg-green-dark px-0 mx-3 my-3" style="width: 15rem;" *ngFor="let element of ostatecznaLista">
-                           <div class="m-2">
-                              <h5 class="card-title">{{element.currency | titlecase }} ({{element.code}})</h5>
+                           <div class="row mx-2 mt-3">
+                              <div class="col-2"><div [ngClass]="classFlags + element.code.toLowerCase()"></div></div>
+                              <div class="col-10"><h5>{{element.code}}</h5></div>
                           </div>
-                           <div class="card-body">
-                              <h5 class="card-title">{{element.mid | number:'1.2-2'}} zł</h5>
-                              <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                              <div class="card-icon"><i class="fa fa-hashtag" aria-hidden="true"></i></div>
-                           </div>
+                          <div class="row ms-4">
+                              <div class="col-6 p-1"><h2>{{element.mid | number:'1.2-2'}} zł</h2></div>
+                              <div class="col-4 px-0 py-3"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+                          </div>
+                          <div class="row ms-2 mb-2">
+                              <div class="col-12"><h6>{{element.currency | titlecase }}</h6></div>
+                          </div>
                         </div> 
                      </div>
-                     <div class="text-center my-2">
-                        <button type="button" class="btn btn-dark-blue btn-rounded" (click)="zaladujWiecej()">{{btnWiecej}} <i class="fa fa-check" aria-hidden="true"></i></button>
+                     <div class="text-center mb-2 mt-3">
+                        <button type="button" class="button" (click)="zaladujWiecej()">{{btnWiecej}} <i class="fa fa-check" aria-hidden="true"></i></button>
                      </div>
                    </div>
                </div>

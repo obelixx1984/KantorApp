@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   pktWiecej = false;
   btnWiecej = 'Załaduj więcej';
 
+  classFlags='currency-flag currency-flag-';
+
   constructor(private bazaService: BazaService) { }
 
   ngOnInit(): void { this.uruchomListeWalut(); }
@@ -31,6 +33,10 @@ export class HomeComponent implements OnInit {
      this.krotkaLista.push(this.pelnaLista[7]);
      this.krotkaLista.push(this.pelnaLista[10]);
      this.krotkaLista.push(this.pelnaLista[9]);
+     this.krotkaLista.push(this.pelnaLista[13]);
+     this.krotkaLista.push(this.pelnaLista[32]);
+     this.krotkaLista.push(this.pelnaLista[12]);
+     this.krotkaLista.push(this.pelnaLista[2]);
      this.ostatecznaLista = this.krotkaLista;
      console.log(this.krotkaLista[0]);
     });
