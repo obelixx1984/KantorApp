@@ -14,7 +14,7 @@ export class WalutyComponent implements OnInit {
   ostatecznaLista: Array<Wskazniki> = [];
 
   pktWiecej = false;
-  btnWiecej = 'Załaduj więcej';
+  btnWiecej = 'Pokaż więcej';
 
   classFlags='currency-flag currency-flag-';
 
@@ -46,7 +46,7 @@ export class WalutyComponent implements OnInit {
     if (this.pktWiecej)
     {
       this.ostatecznaLista = this.krotkaLista;
-      this.btnWiecej = 'Załaduj więcej';
+      this.btnWiecej = 'Pokaż więcej';
       this.pktWiecej = false;
     }
     else

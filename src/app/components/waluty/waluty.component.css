@@ -1,21 +1,53 @@
-.button {
-    display: inline-block;
-    background: #364d92;
+  /* Przycisk Start */
+  
+  .btn {
+    background-color: #45527A;
     color: #fff;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    -webkit-transition: all ease-in-out 300ms;
-    transition: all ease-in-out 300ms;
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+    border-radius: 2px !important;
+    border: none;
+    transition:all 0.3s ease 0s;
+    padding: 7px 25px;
+  }
+
+  .btn:hover, .btn.active:hover {
+    color: #ffffff;
   }
   
-  .button:hover {
-    box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: translate(0px, -10px) scale(0.9);
-            transform: translate(0px, -10px) scale(0.9);
+  .btn:before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    background-color:#21273B;
+    width: 35%;
+    height: 4px;
+    transition:all 0.3s ease 0s;
   }
+  
+  .btn:after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    right: 0;
+    background-color:#21273B;
+    width: 35%;
+    height: 4px;
+    transition:all 0.3s ease 0s;
+  }
+  
+  .btn:hover:before,
+  .btn:hover:after,
+  .btn.active:before,
+  .btn.active:after {
+    width: 100%;
+  }
+
+  /* Przycisk Stop */
+
+  /* Card Start */
   
   .card {
       background-color: #fff;
@@ -30,9 +62,15 @@
       background: linear-gradient(to right, #283048, #859398) !important;
       color: #fff;
   }
+
+  /* Card Stop */
   
+  /* Flagi Start */
+
   .currency-flag {
     border-radius: 50%;
     width: 27px;
     height: 27px;
   }
+
+  /* Flagi Stop */
