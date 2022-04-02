@@ -14,6 +14,19 @@
        </nav>
        <div class="page-content">
            <waluty></waluty>
+           <!-- Wykres start -->
+           <div>
+            <div style="display: block">
+              <canvas baseChart
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [type]="barChartType">
+              </canvas>
+            </div>
+          </div>
+          <!-- Wykres stop -->
        </div>
    </div>
 </div>
