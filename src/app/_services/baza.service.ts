@@ -25,4 +25,9 @@ export class BazaService {
     return this.http.get<TabelaNBP[]>('https://api.nbp.pl/api/exchangerates/tables/a/?format=json');
   }
 
+  urlNBPTabelaAHistoria(code: string, startDate: string, endDate: string): Observable<any> 
+  {
+    return this.http.get(`http://api.nbp.pl/api/exchangerates/rates/A/${code}/${startDate}/${endDate}?format=json`, {});
+  }
+
 }
