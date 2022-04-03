@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
+import { BazaService } from 'src/app/_services/baza.service';
 
 @Component({
   selector: 'wykres',
@@ -26,7 +27,7 @@ export class WykresComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private bazaService: BazaService) { }
 
   ngOnInit(): void {
   }

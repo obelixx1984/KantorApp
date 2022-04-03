@@ -15,6 +15,13 @@ export interface Wskazniki {
   mid: number;
 }
 
+export interface KursHistoria {
+  currency: string;
+  mid: number;
+  effectiveDate: string;
+  code: string;
+}
+
 @Injectable()
 export class BazaService {
 
