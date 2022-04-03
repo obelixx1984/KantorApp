@@ -8,12 +8,14 @@ import { BazaService } from './_services/baza.service';
 import { WalutyComponent } from './components/waluty/waluty.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { WykresComponent } from './components/wykres/wykres.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WalutyComponent,
-    HomeComponent
+    HomeComponent,
+    WykresComponent
   ],
   imports: [
     BrowserModule,
