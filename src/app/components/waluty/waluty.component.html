@@ -35,4 +35,9 @@
           </div>
         </div>
     </div>
+    <div class="row my-3">
+      <div class="col-md-12" *ngFor="let kodwaluty of ostatecznaLista"> 
+         <wykres [kodwaluty]="kodwaluty"></wykres>
+      </div>
+    </div>
 </div>
