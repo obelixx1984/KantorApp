@@ -9,6 +9,7 @@ import { WalutyComponent } from './components/waluty/waluty.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { WykresComponent } from './components/wykres/wykres.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { WykresComponent } from './components/wykres/wykres.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [BazaService],
   bootstrap: [AppComponent]
