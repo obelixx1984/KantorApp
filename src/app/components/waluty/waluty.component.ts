@@ -1,11 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { BazaService, TabelaNBP, Wskazniki } from 'src/app/_services/baza.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'waluty',
   templateUrl: './waluty.component.html',
   styleUrls: ['./waluty.component.css']
 })
+
 export class WalutyComponent implements OnInit {
   tabelanbp: Array<TabelaNBP> = [];
 
@@ -18,9 +21,18 @@ export class WalutyComponent implements OnInit {
 
   classFlags='currency-flag currency-flag-';
 
-  constructor(private bazaService: BazaService) { }
+  constructor(private bazaService: BazaService, public dialog: MatDialog) { }
 
   ngOnInit(): void { this.uruchomListeWalut(); }
+
+  otworzModal() {
+    const modalConfig = new MatDialogConfig();
+
+    modalConfig.disableClose = false;
+    modalConfig.autoFocus = true;
+
+    this.dialog.open(ModalComponent, modalConfig);
+  }
 
   uruchomListeWalut(): void
   {
