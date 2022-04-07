@@ -1,13 +1,19 @@
-<!-- Wykres start -->
-<div>
-    <div style="display: block">
-      <canvas baseChart
-              [datasets]="daneWykresu"
-              [labels]="liniaXWykresu"
-              [legend]="legendaWykresu"
-              [options]="opcjeWykresu"
-              [type]="typWykresu">
-      </canvas>
-    </div>
+<h1 mat-dialog-title>Wykres waluty {{data | uppercase}} - 31 dni</h1>
+<div mat-dialog-content class="mod-content">
+  <!-- Wykres start -->
+<div class="row my-4">
+  <div class="col-md-12">
+    <canvas baseChart height="100%"
+            [datasets]="daneWykresu"
+            [labels]="liniaXWykresu"
+            [legend]="legendaWykresu"
+            [options]="opcjeWykresu"
+            [type]="typWykresu">
+    </canvas>
   </div>
-  <!-- Wykres stop -->
+</div>
+<!-- Wykres stop -->
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Zamknij</button>
+</div>

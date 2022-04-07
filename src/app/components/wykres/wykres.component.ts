@@ -1,7 +1,8 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ChartType } from 'chart.js';
 import * as moment from 'moment';
-import { BazaService, Wskazniki } from 'src/app/_services/baza.service';
+import { BazaService } from 'src/app/_services/baza.service';
 
 @Component({
   selector: 'wykres',
@@ -9,8 +10,7 @@ import { BazaService, Wskazniki } from 'src/app/_services/baza.service';
   styleUrls: ['./wykres.component.css']
 })
 export class WykresComponent implements OnInit {
-  @Input() kodwaluty: any;
-
+  
   nbpFormatDaty = 'YYYY-MM-DD';
 
   public typWykresu: ChartType = 'line';
@@ -21,21 +21,20 @@ export class WykresComponent implements OnInit {
   public opcjeWykresu = 
     {
       borderColor: '#3f5118',
-      borderWidth: 1,
-      scaleShowVerticalLines: false,
+      borderWidth: 2,
+      scaleShowVerticalLines: true,
       responsive: true
     };
 
-  public legendaWykresu = false; 
+  public legendaWykresu = true; 
   
   public nazwaWaluty: Array<any> = [];
 
   public dataOd: any;
   public dataDo: any;
   public teraz: any;
-  public kurs = 'eur';
   
-  constructor(private bazaService: BazaService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private bazaService: BazaService) { }
 
   ngOnInit(): void {
     this.inicjujDate();
@@ -51,7 +50,7 @@ export class WykresComponent implements OnInit {
 
   inicjujWykres(): void
   {
-    this.bazaService.urlNBPTabelaAHistoria(this.kodwaluty.code, this.dataOd, this.dataDo).subscribe(
+    this.bazaService.urlNBPTabelaAHistoria(this.data, this.dataOd, this.dataDo).subscribe(
       (rezultat) => {
         this.wczytajdaneWykresu(rezultat);
       }
@@ -67,7 +66,7 @@ export class WykresComponent implements OnInit {
       daneURLXwykresu.push(elementH.effectiveDate);
     });
     this.daneWykresu = [];
-    this.daneWykresu.push({data: danezURL, label: 'Kurs ' + this.kodwaluty.code.toUpperCase()});
+    this.daneWykresu.push({data: danezURL, label: 'Kurs ' + this.data.toUpperCase()});
     this.liniaXWykresu = daneURLXwykresu;
   }
 

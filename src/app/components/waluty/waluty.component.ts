@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { BazaService, TabelaNBP, Wskazniki } from 'src/app/_services/baza.service';
-import { ModalComponent } from '../modal/modal.component';
+import { WykresComponent } from '../wykres/wykres.component';
 
 @Component({
   selector: 'waluty',
@@ -21,17 +21,19 @@ export class WalutyComponent implements OnInit {
 
   classFlags='currency-flag currency-flag-';
 
-  constructor(private bazaService: BazaService, public dialog: MatDialog) { }
+  constructor(private bazaService: BazaService, private dialog: MatDialog) { }
 
   ngOnInit(): void { this.uruchomListeWalut(); }
 
-  otworzModal() {
+  otworzModal(element: any): void {
     const modalConfig = new MatDialogConfig();
 
     modalConfig.disableClose = false;
     modalConfig.autoFocus = true;
+    modalConfig.data = element;
 
-    this.dialog.open(ModalComponent, modalConfig);
+    this.dialog.open(WykresComponent, modalConfig);
+
   }
 
   uruchomListeWalut(): void

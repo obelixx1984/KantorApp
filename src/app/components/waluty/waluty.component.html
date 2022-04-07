@@ -24,7 +24,7 @@
                </div>
                <div class="row ms-4">
                    <div class="col-6 p-1"><h2>{{element.mid | number:'1.2-2'}} zł</h2></div>
-                   <div class="col-2 px-0 py-2"><button mat-icon-button (click)="otworzModal()">
+                   <div class="col-2 px-0 py-2"><button mat-icon-button (click)="otworzModal(element.code)">
                       <i class="fa fa-bar-chart" aria-hidden="true"></i></button></div>
                </div>
                <div class="row ms-2 mb-2">
@@ -36,10 +36,5 @@
              <button type="button" class="btn" (click)="zaladujWiecej()">{{btnWiecej}}</button>
           </div>
         </div>
-    </div>
-    <div class="row my-3">
-      <div class="col-md-12" *ngFor="let kodwaluty of ostatecznaLista"> 
-         <wykres [kodwaluty]="kodwaluty"></wykres>
-      </div>
     </div>
 </div>
