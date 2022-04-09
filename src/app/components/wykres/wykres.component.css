@@ -2,3 +2,7 @@
     height: auto;
     width: 80vw;
   }
+
+mat-form-field.mat-form-field {
+  width: 130px;
+}

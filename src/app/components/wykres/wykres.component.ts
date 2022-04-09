@@ -12,6 +12,7 @@ import { BazaService } from 'src/app/_services/baza.service';
 export class WykresComponent implements OnInit {
   
   nbpFormatDaty = 'YYYY-MM-DD';
+  nowaDataOd: any;
 
   public typWykresu: ChartType = 'line';
 
@@ -34,8 +35,6 @@ export class WykresComponent implements OnInit {
 
   public legendaWykresu = false; 
   
-  public nazwaWaluty: Array<any> = [];
-
   public dataOd: any;
   public dataDo: any;
   public teraz: any;
@@ -51,12 +50,13 @@ export class WykresComponent implements OnInit {
   {
     this.teraz = moment();
     this.dataDo = this.teraz.format(this.nbpFormatDaty);
-    this.dataOd = this.teraz.subtract(31, 'days').format(this.nbpFormatDaty);
+    this.dataOd = this.teraz.subtract(30, 'days').format(this.nbpFormatDaty);
   }
 
   inicjujWykres(): void
   {
-    this.bazaService.urlNBPTabelaAHistoria(this.data, this.dataOd, this.dataDo).subscribe(
+    let dataStart = this.zmienFormatDaty(this.dataOd);
+    this.bazaService.urlNBPTabelaAHistoria(this.data, dataStart, this.dataDo).subscribe(
       (rezultat) => {
         this.wczytajdaneWykresu(rezultat);
       }
@@ -76,4 +76,18 @@ export class WykresComponent implements OnInit {
     this.liniaXWykresu = daneURLXwykresu;
   }
 
+  zmianaDatyOd(): void {
+    this.nowaDataOd = this.zmienFormatDaty(this.dataOd);
+    this.inicjujWykres();
+  }
+
+  zmienFormatDaty(date: any): string {
+    if (date instanceof Date) {
+      let formatDaty = moment(date.toUTCString());
+      return formatDaty.format(this.nbpFormatDaty);
+    } else {
+      let formatDaty = moment(date);
+      return formatDaty.format(this.nbpFormatDaty);
+    }
+  }
 }

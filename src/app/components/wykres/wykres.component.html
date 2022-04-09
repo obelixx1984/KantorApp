@@ -5,7 +5,18 @@
   <h1 mat-dialog-title>Wykres waluty <b>{{data | uppercase}}</b></h1>
 </div>
 <div class="col-12 d-flex justify-content-center">
-  <h1 mat-dialog-title>od {{dataOd | date:'dd.MM.yyyy'}} do {{dataDo | date:'dd.MM.yyyy'}}</h1>
+  <h1 mat-dialog-title>od 
+    <mat-form-field>
+      <input matInput
+        [(ngModel)]='dataOd'
+        (ngModelChange)="zmianaDatyOd()" 
+        [matDatepicker]="dpFrom"
+        [value]="dataOd"
+        disabled>
+      <mat-datepicker-toggle matSuffix [for]="dpFrom"></mat-datepicker-toggle>
+      <mat-datepicker #dpFrom disabled="false"></mat-datepicker>
+  </mat-form-field>
+   do {{dataDo | date:'dd.MM.yyyy'}}</h1>
 </div>
 <div mat-dialog-content class="mod-content">
   <!-- Wykres start -->
