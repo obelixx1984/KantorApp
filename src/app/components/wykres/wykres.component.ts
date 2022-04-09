@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ChartType } from 'chart.js';
 import * as moment from 'moment';
@@ -20,13 +20,19 @@ export class WykresComponent implements OnInit {
 
   public opcjeWykresu = 
     {
-      borderColor: '#3f5118',
+      borderColor: '#21273B',
       borderWidth: 2,
       scaleShowVerticalLines: true,
-      responsive: true
+      backgroundColor: 'rgba(148,159,177,0.5)',
+      responsive: true,
+      tension: 0.4,
+      pointRadius: 5,
+      pointBackgroundColor: '#21273B',
+      pointHoverRadius: 4,
+      fill: 'origin'
     };
 
-  public legendaWykresu = true; 
+  public legendaWykresu = false; 
   
   public nazwaWaluty: Array<any> = [];
 

@@ -1,4 +1,12 @@
-<h1 mat-dialog-title>Wykres waluty {{data | uppercase}} - 31 dni</h1>
+<div class="row d-flex justify-content-end">
+  <button mat-icon-button mat-dialog-close class="icon-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+</div>
+<div class="col-12 d-flex justify-content-center">
+  <h1 mat-dialog-title>Wykres waluty <b>{{data | uppercase}}</b></h1>
+</div>
+<div class="col-12 d-flex justify-content-center">
+  <h1 mat-dialog-title>od {{dataOd | date:'dd.MM.yyyy'}} do {{dataDo | date:'dd.MM.yyyy'}}</h1>
+</div>
 <div mat-dialog-content class="mod-content">
   <!-- Wykres start -->
 <div class="row my-4">
@@ -13,7 +21,4 @@
   </div>
 </div>
 <!-- Wykres stop -->
-</div>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Zamknij</button>
 </div>
