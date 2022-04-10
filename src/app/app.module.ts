@@ -19,6 +19,7 @@ import { WykresComponent } from './components/wykres/wykres.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalComponent } from './components/modal/modal.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { WymianaWalutComponent } from './components/wymiana-walut/wymiana-walut.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     WalutyComponent,
     HomeComponent,
     WykresComponent,
-    ModalComponent
+    ModalComponent,
+    WymianaWalutComponent
   ],
   imports: [
     BrowserModule,

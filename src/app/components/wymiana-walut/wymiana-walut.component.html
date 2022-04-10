@@ -1,0 +1,36 @@
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Przelicz walutę</h3>
+                    <p>Sprawdź ile zapłacisz za wybraną walutę.</p>
+                    <form class="requires-validation" novalidate>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="number" name="name" placeholder="Podaj kwotę" required>
+                        </div>
+
+                       <div class="col-md-12">
+                            <select class="form-select mt-3">
+                                  <option selected disabled value="">Wybierz walutę</option>
+                                  <option value="jweb">EUR</option>
+                                  <option value="sweb">CHF</option>
+                                  <option value="pmanager">USD</option>
+                           </select>
+                            <div class="valid-feedback">You selected a position!</div>
+                            <div class="invalid-feedback">Please select a position!</div>
+                       </div>
+
+                        <div class="form-button my-4">
+                            <button id="submit" type="submit" class="btn btn-primary">Przelicz</button>
+                        </div>
+                    </form>
+                    <div class="alert alert-success" role="alert">
+                        Twój wynik to: 565 zł
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
